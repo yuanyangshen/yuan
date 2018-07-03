@@ -1,5 +1,6 @@
 package com.shenyy.yuan.common;
 
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;
@@ -24,7 +25,8 @@ public class  ShiroConfig {
 
         //<!-- 过滤链定义，从上向下顺序执行，一般将 /**放在最为下边 -->:这是一个坑呢，一不小心代码就不好使了;
         //<!-- authc:所有url都必须认证通过才可以访问; anon:所有url都都可以匿名访问-->
-        filterChainDefinitionMap.put("/hello", "anon");
+        filterChainDefinitionMap.put("/index/**", "anon");
+        filterChainDefinitionMap.put("/userLogin", "anon");
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/login");
@@ -39,8 +41,22 @@ public class  ShiroConfig {
     }
 
     @Bean
-    public DefaultWebSecurityManager securityManager(){
+    public DefaultWebSecurityManager securityManager(MyRealm myRealm){
         DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
+        securityManager.setRealm(myRealm);
         return securityManager;
+    }
+
+    @Bean(name = "myRealm")
+    public MyRealm myRealm(EhCacheManager cacheManager) {
+        MyRealm realm = new MyRealm();
+        realm.setCacheManager(cacheManager);
+        return realm;
+    }
+
+    @Bean
+    public EhCacheManager ehCacheManager() {
+        EhCacheManager ehCacheManager = new EhCacheManager();
+        return ehCacheManager;
     }
 }

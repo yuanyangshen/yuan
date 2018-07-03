@@ -28,4 +28,9 @@ public class UserServiceImpl implements UserService {
         users.setData(page);
         return users;
     }
+
+    @Override
+    public User getUserByIdOrName(User user) {
+        return userDao.getUserByIdOrName(user);
+    }
 }

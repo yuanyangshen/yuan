@@ -9,4 +9,6 @@ import java.util.List;
 public interface UserService {
 
     public PageData<User> getUsers(Integer pageIndex, Integer pageSize);
+
+    User getUserByIdOrName(User user);
 }

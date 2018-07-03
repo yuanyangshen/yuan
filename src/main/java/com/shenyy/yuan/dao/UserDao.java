@@ -8,4 +8,6 @@ import java.util.List;
 public interface UserDao {
 
     List<User> getUserList(@Param("pageNum")int pageNum, @Param("pageSize")int pageSize);
+
+    User getUserByIdOrName(User user);
 }

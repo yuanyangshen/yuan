@@ -4,6 +4,7 @@ import java.util.List;
 
 public class User {
     private Integer id;
+    private String username;
     private String name;
     private String password;
     private Integer age;
@@ -17,6 +18,14 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getName() {
@@ -65,5 +74,13 @@ public class User {
 
     public void setRoleList(List<SysRole> roleList) {
         this.roleList = roleList;
+    }
+
+    /**
+     * 密码盐
+     * @return
+     */
+    public String getCredentialsSalt(){
+        return this.name + this.salt;
     }
 }

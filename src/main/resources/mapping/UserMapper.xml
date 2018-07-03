@@ -4,6 +4,16 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.shenyy.yuan.dao.UserDao">
     <select id="getUserList" resultType="user">
-        SELECT * FROM user
+        SELECT * FROM user_info
+    </select>
+    
+    <select id="getUserByIdOrName" resultType="user">
+        SELECT * FROM  user_info WHERE 1=1
+        <if test="id!=null">
+            AND id = #{id}
+        </if>
+        <if test="username!=null and username!=''">
+            AND username = #{username}
+        </if>
     </select>
 </mapper>
