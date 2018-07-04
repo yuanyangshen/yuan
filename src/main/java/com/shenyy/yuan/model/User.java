@@ -11,6 +11,7 @@ public class User {
     private String salt;
     private Integer status;
     private List<SysRole> roleList;
+    private List<SysPermission> permissionList;
 
     public Integer getId() {
         return id;
@@ -74,6 +75,14 @@ public class User {
 
     public void setRoleList(List<SysRole> roleList) {
         this.roleList = roleList;
+    }
+
+    public List<SysPermission> getPermissionList() {
+        return permissionList;
+    }
+
+    public void setPermissionList(List<SysPermission> permissionList) {
+        this.permissionList = permissionList;
     }
 
     /**

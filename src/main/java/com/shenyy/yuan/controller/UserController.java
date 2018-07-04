@@ -25,6 +25,7 @@ import java.util.List;
 
 //@RestController
 @Controller
+@RequestMapping("/userMgr/")
 public class UserController {
 
     @Autowired
@@ -59,6 +60,6 @@ public class UserController {
             model.addAttribute("message", "登录失败");
             return "login";
         }
-        return "index/index";
+        return "view/index";
     }
 }

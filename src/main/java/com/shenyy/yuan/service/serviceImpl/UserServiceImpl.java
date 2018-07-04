@@ -5,6 +5,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.shenyy.yuan.common.PageData;
 import com.shenyy.yuan.dao.UserDao;
+import com.shenyy.yuan.model.SysPermission;
+import com.shenyy.yuan.model.SysRole;
 import com.shenyy.yuan.model.User;
 import com.shenyy.yuan.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +34,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByIdOrName(User user) {
         return userDao.getUserByIdOrName(user);
+    }
+
+    @Override
+    public List<SysRole> getRoleList(User user) {
+        return userDao.getRoleList(user);
+    }
+
+    @Override
+    public List<SysPermission> getPermissionList(SysRole sysRole) {
+        return userDao.getPermissionList(sysRole);
+    }
+
+    @Override
+    public List<SysPermission> getPermissionListByUser(List<SysRole> sysRoleList) {
+        return userDao.getPermissionByUser(sysRoleList);
     }
 }

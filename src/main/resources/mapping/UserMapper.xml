@@ -16,4 +16,25 @@
             AND username = #{username}
         </if>
     </select>
+
+    <select id="getRoleList" resultType="sysRole">
+        SELECT b.id,b.role,b.description,b.available
+        FROM userrole a LEFT JOIN role b ON a.roleId = b.id
+        WHERE userId = #{id}
+    </select>
+
+    <select id="getPermissionList" parameterType="Integer" resultType="com.shenyy.yuan.model.SysPermission">
+        SELECT b.id,b.name,b.resourceType,b.url,b.permission,b.parentId,b.parentIds,b.available
+        FROM rolepermission a LEFT JOIN permission b ON b.id = a.permissionId
+        WHERE a.roleId  = #{id}
+    </select>
+
+    <select id="getPermissionByUser" resultType="com.shenyy.yuan.model.SysPermission" parameterType="java.util.List">
+        SELECT DISTINCT b.id,b.name,b.resourceType,b.url,b.permission,b.parentId,b.parentIds,b.available
+        FROM rolepermission a LEFT JOIN permission b ON b.id = a.permissionId
+        WHERE a.roleId IN
+        <foreach collection="list" item="item" open="(" close=")" separator=",">
+            #{item.id}
+        </foreach>
+    </select>
 </mapper>
