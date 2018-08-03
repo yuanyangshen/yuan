@@ -73,6 +73,17 @@
 			<artifactId>pagehelper-spring-boot-starter</artifactId>
 			<version>1.2.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.trilead</groupId>
+			<artifactId>trilead-ssh2</artifactId>
+			<version>1.0.0-build221</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>3.1</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

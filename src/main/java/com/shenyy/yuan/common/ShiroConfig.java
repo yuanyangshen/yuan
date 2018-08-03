@@ -28,6 +28,7 @@ public class  ShiroConfig {
         filterChainDefinitionMap.put("/index/**", "anon");
         filterChainDefinitionMap.put("/js/**", "anon");
         filterChainDefinitionMap.put("/userMgr/userLogin", "anon");
+        filterChainDefinitionMap.put("/userMgr/hello", "anon");
 
         // 如果不设置默认会自动寻找Web工程根目录下的"/login.jsp"页面
         shiroFilterFactoryBean.setLoginUrl("/userMgr/login");

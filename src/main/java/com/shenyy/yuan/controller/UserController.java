@@ -3,6 +3,7 @@ package com.shenyy.yuan.controller;
 import com.github.pagehelper.PageInfo;
 import com.shenyy.yuan.common.PageData;
 import com.shenyy.yuan.model.User;
+import com.shenyy.yuan.service.AsyncService;
 import com.shenyy.yuan.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -31,8 +32,17 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private AsyncService asyncService;
+
     @RequestMapping("/login")
     public String helloHtml() throws IOException {
+        return "index/login";
+    }
+
+    @RequestMapping("/hello")
+    public String helloTest() throws IOException {
+        asyncService.executeAsync();
         return "index/login";
     }
 
