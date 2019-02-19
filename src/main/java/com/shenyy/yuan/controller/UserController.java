@@ -42,6 +42,7 @@ public class UserController {
 
     @RequestMapping("/hello")
     public String helloTest() throws IOException {
+        //线程池
         asyncService.executeAsync();
         return "index/login";
     }
