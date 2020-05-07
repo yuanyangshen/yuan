@@ -1,6 +1,7 @@
 server:
   port: 8081
-
+mq:
+  env: local
 spring:
     datasource:
         name: test
@@ -12,6 +13,16 @@ spring:
       view:
         prefix: classpath:/templates/
         suffix: .html
+    rabbitmq:
+      host: 127.0.0.1
+      port: 5672
+      username: guest
+      password: guest
+      listener:
+        simple:
+          concurrency: 10
+          max-concurrency: 20
+          prefetch: 5
 mybatis:
   mapper-locations: classpath:mapping/*.xml
   type-aliases-package: com.shenyy.yuan.model
@@ -22,3 +33,35 @@ pagehelper:
     reasonable: true
     supportMethodsArguments: true
     params: count=countSql
+
+log:
+  user:
+    queue:
+      name: ${mq.env}.log.user.queue
+    exchange:
+      name: ${mq.env}.log.user.exchange
+    routing:
+      key:
+        name: ${mq.env}.log.user.routing.key
+
+mail:
+  queue:
+    nameA: ${mq.env}.mail.queueA
+    nameB: ${mq.env}.mail.queueB
+  exchange:
+    name: ${mq.env}.mail.exchange
+  routing:
+    key:
+      nameA: ${mq.env}.mail.routing.keyA
+      nameB: ${mq.env}.mail.routing.keyB
+
+user:
+  order:
+    queue:
+      name: ${mq.env}.user.order.queue
+    exchange:
+      name: ${mq.env}.user.order.exchange
+    routing:
+      key:
+        name: ${mq.env}.user.order.routing.key
+

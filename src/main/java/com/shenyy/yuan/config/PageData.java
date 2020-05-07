@@ -1,4 +1,4 @@
-package com.shenyy.yuan.common;
+package com.shenyy.yuan.config;
 
 import java.io.Serializable;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package com.shenyy.yuan.common;
+package com.shenyy.yuan.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

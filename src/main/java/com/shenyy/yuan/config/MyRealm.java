@@ -1,4 +1,4 @@
-package com.shenyy.yuan.common;
+package com.shenyy.yuan.config;
 
 import com.shenyy.yuan.model.SysPermission;
 import com.shenyy.yuan.model.SysRole;
@@ -12,7 +12,6 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

@@ -1,9 +1,7 @@
 package com.shenyy.yuan.service.serviceImpl;
 
 import com.github.pagehelper.Page;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.shenyy.yuan.common.PageData;
+import com.shenyy.yuan.config.PageData;
 import com.shenyy.yuan.dao.UserDao;
 import com.shenyy.yuan.model.SysPermission;
 import com.shenyy.yuan.model.SysRole;

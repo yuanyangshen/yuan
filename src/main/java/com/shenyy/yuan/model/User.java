@@ -13,6 +13,15 @@ public class User {
     private List<SysRole> roleList;
     private List<SysPermission> permissionList;
 
+    public User() {
+
+    }
+
+    public User(String username, String password) {
+        this.username = username;
+        this.password = password;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -87,9 +96,10 @@ public class User {
 
     /**
      * 密码盐
+     *
      * @return
      */
-    public String getCredentialsSalt(){
+    public String getCredentialsSalt() {
         return this.name + this.salt;
     }
 }

@@ -1,4 +1,4 @@
-package com.shenyy.yuan.common;
+package com.shenyy.yuan.config;
 
 import com.github.pagehelper.PageHelper;
 import org.springframework.context.annotation.Bean;
